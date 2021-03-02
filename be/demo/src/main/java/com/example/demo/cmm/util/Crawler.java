@@ -25,7 +25,7 @@ public class Crawler extends Proxy{
     	ArrayList<ReviewDto> artBag = new ArrayList<>();
         try{
             Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
-            Elements titles = rawData.select("strong[class=bbsTitleText]");
+            Elements titles = rawData.getElementsByClass("bbsTitle");
             Elements contents = rawData.select("b[class=bbsText]");
             ReviewDto article = null;
             logger.info(" titles.size() " + titles.size());

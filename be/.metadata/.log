@@ -756,3 +756,18 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-02 11:39:10.696
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-02 11:39:10.706
+!MESSAGE classpath=173 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-02 11:39:10.716
+!MESSAGE buffering callback sts4.classpath.WCJcZoJQ demo false 173
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-02 11:39:10.722
+!MESSAGE executing callback sts4.classpath.WCJcZoJQ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-02 11:39:10.739
+!MESSAGE executing callback sts4.classpath.WCJcZoJQ SUCCESS [done]
