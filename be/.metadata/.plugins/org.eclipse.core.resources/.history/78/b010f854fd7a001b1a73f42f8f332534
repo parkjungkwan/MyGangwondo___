@@ -28,9 +28,7 @@ public class Crawler extends Proxy{
             Elements titles = rawData.select("strong[class=bbsTitleText]");
             Elements contents = rawData.select("b[class=bbsText]");
             ReviewDto article = null;
-            logger.info(" titles.size() " + titles.size());
             for(int i=0; i< titles.size(); i++){
-            	logger.info(" for 내부 ");
                 article = new ReviewDto();
                 article.setReviewTitle(titles.get(i).text());
                 article.setReviewContent(contents.get(i).text());
@@ -42,8 +40,4 @@ public class Crawler extends Proxy{
         }
         return null;
     }
-    public static void main(String[] args) {
-    	Crawler c = new Crawler();
-    	c.crawling("");
-	}
 }

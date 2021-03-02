@@ -1,5 +1,4 @@
 package com.example.demo.cmm.util;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +14,18 @@ import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// @Component @RequiredArgsConstructor
+@Component @RequiredArgsConstructor
 public class Crawler extends Proxy{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	// private final Vector<ReviewDto> artBag;
-    public Vector<ReviewDto>  crawling(String url2){
-    	String url = "https://tickets.interpark.com/goods/20009147";
-    	logger.info(" URL : "+url);
-    	ArrayList<ReviewDto> artBag = new ArrayList<>();
+	private final Vector<ReviewDto> artBag;
+    public Vector<ReviewDto>  crawling(String url){
+        System.out.println(" URL : "+url);
         try{
             Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
-            Elements titles = rawData.select("strong[class=bbsTitleText]");
-            Elements contents = rawData.select("b[class=bbsText]");
+            Elements titles = rawData.select("a[class=albumTitle hyrend]");
+            Elements contents = rawData.select("aside[class=recommendReview] h1");
             ReviewDto article = null;
-            logger.info(" titles.size() " + titles.size());
             for(int i=0; i< titles.size(); i++){
-            	logger.info(" for 내부 ");
                 article = new ReviewDto();
                 article.setReviewTitle(titles.get(i).text());
                 article.setReviewContent(contents.get(i).text());
@@ -40,10 +35,6 @@ public class Crawler extends Proxy{
         }catch(Exception e){
             e.printStackTrace();
         }
-        return null;
+        return artBag;
     }
-    public static void main(String[] args) {
-    	Crawler c = new Crawler();
-    	c.crawling("");
-	}
 }

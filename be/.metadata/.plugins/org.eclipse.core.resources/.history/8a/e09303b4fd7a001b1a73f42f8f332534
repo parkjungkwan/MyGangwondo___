@@ -28,7 +28,7 @@ public class Crawler extends Proxy{
             Elements titles = rawData.select("strong[class=bbsTitleText]");
             Elements contents = rawData.select("b[class=bbsText]");
             ReviewDto article = null;
-            logger.info(" titles.size() " + titles.size());
+            logger.info(" try 내부 ");
             for(int i=0; i< titles.size(); i++){
             	logger.info(" for 내부 ");
                 article = new ReviewDto();
