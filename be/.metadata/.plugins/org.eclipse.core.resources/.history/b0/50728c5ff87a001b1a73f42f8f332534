@@ -1,0 +1,23 @@
+package com.example.demo.cmm.util;
+import static com.example.demo.dwh.domain.Util.*;
+import static java.util.stream.Collectors.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.aim.domain.Grade;
+import com.example.demo.uss.domain.Manager;
+import com.example.demo.uss.domain.Student;
+import com.example.demo.uss.domain.Teacher;
+
+
+@Service("dummy")
+public class DummyGenerator {
+
+}
