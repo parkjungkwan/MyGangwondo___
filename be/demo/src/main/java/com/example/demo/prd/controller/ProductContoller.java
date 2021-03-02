@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.HomeController;
 import com.example.demo.brd.repository.BoardRepositoryImpl;
+import com.example.demo.cmm.controller.HomeController;
 import com.example.demo.prd.domain.Product;
 import com.example.demo.prd.repository.ProductRepositoy;
 import com.example.demo.prd.service.ProductServiceImpl;
