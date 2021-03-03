@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,43 +30,48 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/boards") 
 public class BoardController extends AbstractController<Board>{
 	final BoardServiceImpl service;
 
-	@Override
-	public ResponseEntity<Integer> save(Board t) {
+	@PostMapping("/save")
+	public ResponseEntity<Integer> save(@RequestBody Board t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 
-	@Override
-	public ResponseEntity<Integer> delete(Board t) {
+	@DeleteMapping("/delete")
+	public ResponseEntity<Integer> delete(@RequestBody Board t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
 
-	@Override
+	@GetMapping("/count")
 	public ResponseEntity<Integer> count() {
 		return ResponseEntity.ok(service.count());
 	}
 
-	@Override
-	public ResponseEntity<Board> getOne(int id) {
+	@GetMapping("/one/{id}")
+	public ResponseEntity<Board> getOne(@PathVariable int id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
 
-	@Override
-	public ResponseEntity<Optional<Board>> findById(int id) {
+	@GetMapping("/find/{id}")
+	public ResponseEntity<Optional<Board>> findById(@PathVariable int id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
 
-	@Override
-	public ResponseEntity<Boolean> existsById(int id) {
+	@GetMapping("/exists/{id}")
+	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 
-	@Override
+	@GetMapping("/all")
 	public ResponseEntity<List<Board>> findAll() {
 		return ResponseEntity.ok(service.findAll());
+	}
+	@GetMapping("/title/{title}")
+	public ResponseEntity<List<Board>> findByTitle(@PathVariable String title) {
+		return ResponseEntity.ok(service.findByTitle(title));
 	}
 	
 }

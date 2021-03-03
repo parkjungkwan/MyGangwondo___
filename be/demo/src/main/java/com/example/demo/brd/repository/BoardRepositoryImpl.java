@@ -2,6 +2,8 @@ package com.example.demo.brd.repository;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +15,17 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 public class BoardRepositoryImpl extends QuerydslRepositorySupport 
 						implements IBoardRepository{
 	private final JPAQueryFactory qf;
-	public BoardRepositoryImpl(JPAQueryFactory qf) {
+	private final EntityManager em;
+	public BoardRepositoryImpl(JPAQueryFactory qf, EntityManager em) {
 		super(Board.class);
 		this.qf = qf;
+		this.em = em;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Board> findByTitle(String title) {
+		return em.createNamedQuery("Board.findByTitle")
+				.setParameter("title", title)
+				.getResultList();
 	}
 }

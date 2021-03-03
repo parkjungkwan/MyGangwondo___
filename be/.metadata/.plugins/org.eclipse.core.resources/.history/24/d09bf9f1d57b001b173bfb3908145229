@@ -1,0 +1,5 @@
+package com.example.demo.hal.controller;
+
+public class HallController {
+
+}

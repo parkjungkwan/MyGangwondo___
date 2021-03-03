@@ -29,5 +29,9 @@ public class BoardServiceImpl extends AbstractService<Board>
 		repo.delete(t); 
 		return (getOne(t.getBoardNo())==null) ? 1 : 0;
 	}
+	@Override
+	public List<Board> findByTitle(String title) {
+		return repo.findByTitle(title);
+	}
 }
 
