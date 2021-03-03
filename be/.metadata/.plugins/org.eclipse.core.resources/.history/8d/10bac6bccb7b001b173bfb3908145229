@@ -1,0 +1,72 @@
+package com.example.demo.brd.controller;
+
+import java.time.LocalDate;    
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;   
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.brd.domain.Board;
+import com.example.demo.brd.domain.BoardDto;
+import com.example.demo.brd.repository.BoardRepository;
+import com.example.demo.brd.service.BoardService;
+import com.example.demo.brd.service.BoardServiceImpl;
+import com.example.demo.cmm.controller.AbstractController;
+import com.google.common.cache.AbstractCache;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/boards") 
+public class BoardController extends AbstractController<Board>{
+	final BoardServiceImpl service;
+
+	@Override
+	public ResponseEntity<Integer> save(Board t) {
+		return ResponseEntity.ok(service.save(t));
+	}
+
+	@Override
+	public ResponseEntity<Integer> delete(Board t) {
+		return ResponseEntity.ok(service.delete(t));
+	}
+
+	@Override
+	public ResponseEntity<Integer> count() {
+		return ResponseEntity.ok(service.count());
+	}
+
+	@Override
+	public ResponseEntity<Board> getOne(int id) {
+		return ResponseEntity.ok(service.getOne(id));
+	}
+
+	@Override
+	public ResponseEntity<Board> findById(int id) {
+		return ResponseEntity.ok(service.findById(id));
+	}
+
+	@Override
+	public ResponseEntity<Boolean> existsById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<List<Board>> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

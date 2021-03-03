@@ -6,8 +6,8 @@ import java.util.Optional;
 import com.example.demo.mem.domain.Member;
 
 public abstract class AbstractService<T> {
-	public abstract T save(T t);
-	public abstract void delete(T t);
+	public abstract int save(T t);
+	public abstract int delete(T t);
 	public abstract int count();
 	public abstract T getOne(int id);
 	public abstract Optional<T> findById(int id);

@@ -19,12 +19,15 @@ public class BoardServiceImpl extends AbstractService<Board>
     							implements BoardService{
 	private final BoardRepository repo;
 	
-	@Override public Board save(Board m) { return repo.save(m);}
-	@Override public void delete(Board m) { repo.delete(m);}
+	@Override public int save(Board t) {return (repo.save(t)!=null) ? 1:0;}
 	@Override public int count() {return (int) repo.count();}
 	@Override public Board getOne(int id) {return repo.getOne(id);}
 	@Override public Optional<Board> findById(int id) {return repo.findById(id);}
 	@Override public boolean existsById(int id) {return repo.existsById(id);}
 	@Override public List<Board> findAll() {return repo.findAll();}
+	@Override public int delete(Board t) {
+		repo.delete(t); 
+		return (getOne(t.getBoardNo())==null) ? 1 : 0;
+	}
 }
 
