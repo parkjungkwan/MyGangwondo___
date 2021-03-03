@@ -49,7 +49,7 @@ public class BoardRepositoryImpl extends QuerydslRepositorySupport
 				+ "m.mem_email memEmail \n"
 				+ "from Board b inner join Member m on b.mem_no = m.mem_no \n"
 				+ "where b.mem_no like :memNo")
-				.setParameter("memNo", memNo)
+				.setParameter("writeDate", memNo)
 				.getResultList();
 	}
 }

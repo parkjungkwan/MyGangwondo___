@@ -13,5 +13,4 @@ public class BoardDto {
 	private String writtenDate;
 	private int memNo;
 	private String memName;
-	private String memEmail;
 }

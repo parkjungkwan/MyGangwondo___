@@ -43,13 +43,9 @@ public class BoardRepositoryImpl extends QuerydslRepositorySupport
 				+ "b.brd_no boardNum  "
 				+ "b.title title "
 				+ "b.content content "
-				+ "b.written_date writtenDate "
-				+ "m.mem_no memNo "
-				+ "m.mem_name memName "
-				+ "m.mem_email memEmail \n"
-				+ "from Board b inner join Member m on b.mem_no = m.mem_no \n"
-				+ "where b.mem_no like :memNo")
-				.setParameter("memNo", memNo)
+				+ " "
+				+ "from Board b where b.write_date like :writeDate")
+				.setParameter("writeDate", writeDate)
 				.getResultList();
 	}
 }

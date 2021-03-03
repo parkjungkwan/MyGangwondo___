@@ -11,7 +11,4 @@ public class BoardDto {
 	private String  title;
 	private String content;
 	private String writtenDate;
-	private int memNo;
-	private String memName;
-	private String memEmail;
 }

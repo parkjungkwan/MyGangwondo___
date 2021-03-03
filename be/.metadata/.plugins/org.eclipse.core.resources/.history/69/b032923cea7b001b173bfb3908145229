@@ -4,11 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.brd.domain.Board;
-import com.example.demo.brd.domain.BoardDto;
 interface IBoardRepository{
 	public List<Board> findByTitle(String title);
-	public List<Board> findByWriteDate(String writeDate);
-	public List<BoardDto> findByMemNo(String MemNo);
 }
 public interface BoardRepository extends JpaRepository<Board, Integer>,
 										IBoardRepository{
