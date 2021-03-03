@@ -1,12 +1,13 @@
 package com.example.demo.prd.service;
 
-import org.springframework.beans.factory.annotation.Autowired; 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
-import com.example.demo.mem.repository.MemberRepository;
-import com.example.demo.mem.service.MemberServiceImpl;
+import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.prd.domain.Product;
-import com.example.demo.prd.repository.ProductRepositoy;
+import com.example.demo.prd.repository.ProductRepositoryImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,15 +15,19 @@ import lombok.RequiredArgsConstructor;
 
 @Service 
 @RequiredArgsConstructor
-public class ProductServiceImpl {
-	final ProductRepositoy productMapper;
-	public int add(Product prd) {
-	return productMapper.insert(prd);}
+public class ProductServiceImpl extends AbstractService<Product>
+								implements ProductService{
+	private final ProductRepositoryImpl repo;
 	
-	public int update(Product prd) {
-	return productMapper.update(prd);}
-
-	public int delete(Product prd) {
-	return productMapper.delete(prd);}
+	@Override public int save(Product t) {return (repo.save(t)!=null) ? 1:0;}
+	@Override public int count() {return (int) repo.count();}
+	@Override public Product getOne(int id) {return repo.getOne(id);}
+	@Override public Optional<Product> findById(int id) {return repo.findById(id);}
+	@Override public boolean existsById(int id) {return repo.existsById(id);}
+	@Override public List<Product> findAll() {return repo.findAll();}
+	@Override public int delete(Product t) {
+		repo.delete(t); 
+		return (getOne(t.getMemNo())==null) ? 1 : 0;
+	}
 	
 }

@@ -1,0 +1,12 @@
+package com.example.demo.prd.repository;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.prd.domain.Product;
+
+
+public interface ProductRepositoy {
+
+}

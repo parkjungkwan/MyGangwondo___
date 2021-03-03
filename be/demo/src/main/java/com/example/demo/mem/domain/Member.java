@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity @Getter
 public class Member {
 	@Id @Column(name="mem_no") private int memNo;
 	@Column(name="mem_id") private String memid;
