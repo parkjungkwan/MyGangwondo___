@@ -9,6 +9,9 @@ import com.example.demo.brd.domain.Board;
 import com.example.demo.brd.domain.BoardDto;
 import com.example.demo.mem.domain.Member;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+interface IBoardRepository{
+	
+}
 @Repository
 public class BoardRepositoryImpl extends QuerydslRepositorySupport 
 						implements IBoardRepository{

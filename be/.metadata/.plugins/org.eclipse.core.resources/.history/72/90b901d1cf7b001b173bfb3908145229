@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.brd.repository.BoardRepositoryImpl;
 import com.example.demo.cmm.controller.AbstractController;
 import com.example.demo.cmm.controller.HomeController;
 import com.example.demo.prd.domain.Product;
-import com.example.demo.prd.repository.ProductRepository;
+import com.example.demo.prd.repository.ProductRepositoy;
 import com.example.demo.prd.service.ProductServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -29,41 +30,44 @@ import lombok.RequiredArgsConstructor;
 @RestController @RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductContoller extends AbstractController<Product>{
-	final ProductServiceImpl service;
+	final ProductRepositoy productMapper;
+	final ProductServiceImpl productService;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Override
 	public ResponseEntity<Integer> save(Product t) {
-		return ResponseEntity.ok(service.save(t));
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<Integer> delete(Product t) {
-		return ResponseEntity.ok(service.delete(t));
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<Integer> count() {
-		return ResponseEntity.ok(service.count());
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<Product> getOne(int id) {
-		return ResponseEntity.ok(service.getOne(id));
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<Optional<Product>> findById(int id) {
-		return ResponseEntity.ok(service.findById(id));
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<Boolean> existsById(int id) {
-		return ResponseEntity.ok(service.existsById(id));
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 	@Override
 	public ResponseEntity<List<Product>> findAll() {
-		return ResponseEntity.ok(service.findAll());
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 	
 }

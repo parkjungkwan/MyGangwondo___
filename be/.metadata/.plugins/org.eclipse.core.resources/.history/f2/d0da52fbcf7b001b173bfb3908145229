@@ -5,6 +5,5 @@ import com.example.demo.brd.domain.Board;
 interface IBoardRepository{
 	
 }
-public interface BoardRepository extends JpaRepository<Board, Integer>,
-										IBoardRepository{
+public interface BoardRepository extends JpaRepository<Board, Integer>{
 }

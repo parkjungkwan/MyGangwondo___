@@ -28,7 +28,7 @@ public class ProductServiceImpl extends AbstractService<Product>
 	@Override public List<Product> findAll() {return repo.findAll();}
 	@Override public int delete(Product t) {
 		repo.delete(t); 
-		return (getOne(t.getPrdId())==null) ? 1 : 0;
+		return (getOne(t.getMemNo())==null) ? 1 : 0;
 	}
 	
 }
