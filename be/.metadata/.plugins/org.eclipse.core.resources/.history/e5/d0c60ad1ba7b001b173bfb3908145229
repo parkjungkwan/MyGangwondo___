@@ -1,0 +1,12 @@
+package com.example.demo.mem.repository;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.mem.domain.Member;
+
+@Repository
+public class MemberRepositoryImpl implements MemberRepository{
+
+	
+
+}

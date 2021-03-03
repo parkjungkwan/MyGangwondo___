@@ -1,0 +1,24 @@
+package com.example.demo.brd.service;
+
+import java.util.Optional;
+
+import com.example.demo.cmm.service.AbstractService;
+import com.example.demo.mem.domain.Member;
+import com.example.demo.mem.repository.MemberRepository;
+import com.example.demo.mem.service.MemberService;
+
+@Service
+@RequiredArgsConstructor
+public class MemberServiceImpl extends AbstractService<Member>
+    							implements MemberService{
+	private final MemberRepository repo;
+	
+	@Override public Member save(Member m) { return repo.save(m);}
+	@Override public void delete(Member m) { repo.delete(m);}
+	@Override public int count() {return (int) repo.count();}
+	@Override public Member getOne(int id) {return repo.getOne(id);}
+	@Override public Optional<Member> findById(int id) {return repo.findById(id);}
+	@Override public boolean existsById(int id) {return repo.existsById(id);}
+	@Override public List<Member> findAll() {return repo.findAll();}
+}
+

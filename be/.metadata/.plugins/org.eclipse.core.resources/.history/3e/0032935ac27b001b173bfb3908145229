@@ -1,0 +1,13 @@
+package com.example.demo.cmm.service;
+
+public abstract class AbstractService {
+	private int age;
+	public abstract void test() ;
+	public void test2() {}
+}
+
+interface A2{
+	private int age;
+	public void test();
+	
+}

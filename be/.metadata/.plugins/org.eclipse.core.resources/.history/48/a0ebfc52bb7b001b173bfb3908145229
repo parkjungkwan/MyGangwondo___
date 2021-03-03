@@ -1,0 +1,20 @@
+package com.example.demo.mem.repository;
+
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.mem.domain.Member;
+
+interface IMemberRepository{
+	
+}
+
+@Repository
+public class MemberRepositoryImpl extends QuerydslRepositorySupport{
+
+	public MemberRepositoryImpl(Class<?> domainClass) {
+		super(Member.class);
+		
+	}
+
+}

@@ -1,10 +1,13 @@
 package com.example.demo.mem.service;
 
-import java.util.Map; 
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.mem.domain.Member;
 import com.example.demo.mem.repository.MemberRepository;
 
@@ -12,27 +15,15 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class MemberServiceImpl {
-	final MemberRepository memberRepository;
+public class MemberServiceImpl extends AbstractService<Member>
+    							implements MemberService{
+	private final MemberRepository repo;
 	
-	public int join(Member m) {
-		
-		return memberRepository.insert(m);
-	}
-	public Member login(Member m) {
-	
-		return memberRepository.selectById(m);
-	}
-	public int modify(Member m) {
-		
-		return memberRepository.update(m);
-	}
-	public int withdrawal(Member m) {
-		
-		return memberRepository.delete(m);
-	}
-	public Member getMember(String memid) {
-		return null;
-	}
-
+	@Override public Member save(Member m) { return repo.save(m);}
+	@Override public void delete(Member m) { repo.delete(m);}
+	@Override public int count() {return (int) repo.count();}
+	@Override public Member getOne(int id) {return repo.getOne(id);}
+	@Override public Optional<Member> findById(int id) {return repo.findById(id);}
+	@Override public boolean existsById(int id) {return repo.existsById(id);}
+	@Override public List<Member> findAll() {return repo.findAll();}
 }

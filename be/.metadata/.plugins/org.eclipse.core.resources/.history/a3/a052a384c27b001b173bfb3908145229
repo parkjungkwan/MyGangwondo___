@@ -1,0 +1,29 @@
+package com.example.demo.cmm.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.mem.domain.Member;
+
+public abstract class AbstractService<T> {
+	public abstract T save(T t);
+	public abstract void delete(T t) {
+		repo.delete(m);
+	}
+	public abstract int count() {
+		return (int) repo.count();
+	}
+	public abstract T getOne(int id) {
+		return repo.getOne(id);
+	}
+	public abstract Optional<T> findById(int id) {
+		return repo.findById(id);
+	}
+	public abstract boolean existsById(int id) {
+		return repo.existsById(id);
+	}
+	public abstract List<T> findAll() {
+		return repo.findAll();
+	}
+}
+

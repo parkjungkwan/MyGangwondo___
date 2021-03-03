@@ -1,0 +1,10 @@
+package com.example.demo.cmm.service;
+
+public abstract class AbstractService {
+	public abstract void test() ;
+}
+
+interface A2{
+	public void test();
+	public void test2() {}
+}

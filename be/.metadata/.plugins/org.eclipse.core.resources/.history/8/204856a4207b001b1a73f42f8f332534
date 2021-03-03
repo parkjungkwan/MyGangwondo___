@@ -1,0 +1,15 @@
+package com.example.demo.brd.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class Hall {
+	@Id @Column(name="hall_no") private int boardNum;
+	@Column(name="hall_name") private String  title;
+	@Column(name="hall_loc") private String content;
+	@Column(name="written_date") private String writtenDate;
+	@Column(name="written_date") private String writtenDate;
+	@Column(name="written_date") private String writtenDate;
+	@Column(name="written_date") private String writtenDate;
+	@Column(name="written_date") private String writtenDate;
+}
