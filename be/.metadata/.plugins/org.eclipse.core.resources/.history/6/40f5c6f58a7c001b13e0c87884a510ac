@@ -1,0 +1,15 @@
+package com.example.demo.hal.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.brd.domain.Board;
+import com.example.demo.brd.domain.BoardDto;
+import com.example.demo.hal.domain.Hall;
+import com.example.demo.hal.domain.HallDto;
+interface IHallRepository{
+	
+}
+public interface HallRepository extends JpaRepository<Hall, Integer>,
+										IHallRepository{
+}

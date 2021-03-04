@@ -4,3 +4,22 @@
 1614741806051	Rename type 'ProductRepositoy'
 1614742557599	Delete element
 1614742561400	Move compilation unit
+1614758035008	Delete element
+1614819146345	Delete element
+1614819156624	Delete element
+1614819366670	Copy compilation unit
+1614819375621	Copy compilation unit
+1614819380392	Copy compilation units
+1614819385475	Copy compilation units
+1614819391349	Rename type 'Board'
+1614819397034	Rename type 'BoardController'
+1614819402193	Rename type 'BoardRepository'
+1614819407186	Rename type 'BoardRepositoryImpl'
+1614819413833	Rename type 'BoardService'
+1614819419817	Rename type 'BoardServiceImpl'
+1614819476344	Copy compilation unit
+1614819482324	Rename type 'BoardDto'
+1614819973541	Move compilation unit
+1614819987264	Move compilation units
+1614820000057	Move compilation units
+1614820005227	Rename package 'com.example.demo.hal'

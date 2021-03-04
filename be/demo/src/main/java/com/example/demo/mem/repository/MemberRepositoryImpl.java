@@ -9,10 +9,10 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 @Repository
 public class MemberRepositoryImpl extends QuerydslRepositorySupport 
 									implements IMemberRepository{
-	private final JPAQueryFactory qf;
-	public MemberRepositoryImpl(JPAQueryFactory qf) {
+	//private final JPAQueryFactory qf;
+	public MemberRepositoryImpl() {
 		super(Member.class);
-		this.qf = qf;
+		//this.qf = qf;
 	}
 
 }

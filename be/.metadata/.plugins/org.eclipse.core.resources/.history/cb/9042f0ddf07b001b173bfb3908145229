@@ -1,0 +1,28 @@
+package com.example.demo.hal.repository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.hal.domain.Hall;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+@Repository
+public class HallRepositoryImpl extends QuerydslRepositorySupport implements IHallRepository {
+	private final JPAQueryFactory qf;
+	
+	public HallRepositoryImpl(JPAQueryFactory qf) {
+		super(Hall.class);
+		this.qf = qf;
+	}
+
+	@Query("update hall set hall_closed = :hallClosed, age = :age, ssn = :ssn where id = :id")
+	public int update(Hall t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
+
+}

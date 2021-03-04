@@ -1,0 +1,94 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.4.RELEASE'
+        querydslPluginVersion = '1.0.10'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" } // plugin 저장소
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.7.RELEASE"
+        classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslPluginVersion}")
+    }
+}
+ 
+ 
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.ewerk.gradle.plugins.querydsl"
+apply plugin: 'eclipse'
+ 
+group = 'com.jpp'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+ 
+configurations {
+   compileOnly {
+      extendsFrom annotationProcessor
+   }
+}
+ 
+repositories {
+   mavenCentral()
+}
+ 
+dependencies {
+   compile 'org.springframework.boot:spring-boot-starter-actuator'
+   compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+   compile 'org.springframework.boot:spring-boot-starter-web'
+   compileOnly 'org.projectlombok:lombok'
+   runtimeOnly 'com.h2database:h2'
+   annotationProcessor 'org.projectlombok:lombok'
+   
+   compile 'org.springframework.boot:spring-boot-starter-tomcat'
+   
+   testCompile('org.springframework.boot:spring-boot-starter-test') {
+      exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+   }
+   
+   compile 'org.apache.tomcat.embed:tomcat-embed-jasper'
+   compile 'javax.servlet:jstl'
+   
+   compile 'org.json:json:20180813'
+   compile 'com.google.code.gson:gson:2.8.5'
+   
+   compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.2'
+   compile group: 'org.aspectj', name: 'aspectjrt', version: '1.9.2'
+   
+   compile 'com.querydsl:querydsl-jpa' // querydsl
+   compile 'com.querydsl:querydsl-apt' // querydsl
+}
+ 
+test {
+   useJUnitPlatform()
+   ignoreFailures = true
+}
+ 
+def querydslSrcDir = 'src/main/generated'
+ 
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+ 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', querydslSrcDir]
+        }
+    }
+}
+ 
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+ 
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+ 

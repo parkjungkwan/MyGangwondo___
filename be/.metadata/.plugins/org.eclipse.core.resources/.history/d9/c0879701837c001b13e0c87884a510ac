@@ -1,0 +1,28 @@
+package com.example.demo.hal.repository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.hal.domain.Hall;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import lombok.RequiredArgsConstructor;
+
+@Repository @RequiredArgsConstructor
+public class HallRepositoryImpl extends QuerydslRepositorySupport
+								implements IHallRepository {
+	//private final JPAQueryFactory qf;
+	
+	public HallRepositoryImpl() {
+		super(Hall.class);
+		//this.qf = qf;
+	}
+
+	
+
+	
+	
+
+}

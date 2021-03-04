@@ -1,0 +1,15 @@
+package com.example.demo.hal;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.brd.domain.Board;
+import com.example.demo.brd.domain.BoardDto;
+interface IHallRepository{
+	public List<Hall> findByTitle(String title);
+	public List<Hall> findByWriteDate(String writeDate);
+	public List<HallDto> findByMemNo(String MemNo);
+}
+public interface HallRepository extends JpaRepository<Hall, Integer>,
+										IHallRepository{
+}
