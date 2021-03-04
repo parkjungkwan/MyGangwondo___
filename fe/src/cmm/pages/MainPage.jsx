@@ -1,7 +1,15 @@
-import React from 'react'
+import { Height } from '@material-ui/icons'
+import React, { useEffect, useState } from 'react'
+import { makeStyles } from '@material-ui/styles'
+const useStyles = makeStyles(()=>({}))
+export const MainPage = () => {
 
-
-export const MainPage = () => (<><h1>메인 페이지</h1></>)
+    return (<>
+    
+    </>)
+}
 
 
 export default MainPage
+
+

@@ -13,7 +13,7 @@ import lombok.Getter;
 name = "Board.findByTitle",
 query = "select b from Board b where b.title like :title")
 public class Board {
-	@Id @Column(name="board_num") private int boardNo;
+	@Id @Column(name="board_num") private int boardNo; 
 	@Column(name="title") private String  title;
 	@Column(name="content") private String content;
 	@Column(name="written_date") private String writtenDate;

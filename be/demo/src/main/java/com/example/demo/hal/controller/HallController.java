@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/halls") 
 public class HallController extends AbstractController<Hall>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
