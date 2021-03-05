@@ -1,9 +1,0 @@
-package com.example.demo.hal.repository;
-
-import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class HallRepositoryImpl extends QuerydslRepositorySupport implements IHallRepository {
-
-}

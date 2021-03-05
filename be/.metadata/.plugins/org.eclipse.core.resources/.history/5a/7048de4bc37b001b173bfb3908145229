@@ -1,9 +1,0 @@
-package com.example.demo.brd.repository;
-
-import java.util.List;
-
-import com.example.demo.brd.domain.Board;
-import com.example.demo.brd.domain.BoardDto;
-
-public interface BoardRepository {
-}
