@@ -21,10 +21,19 @@ const SignUpForm = () => {
   const register = e => {
     e.preventDefault()
     axios.post(`/users/save`,{
-      userid, password, username, email, gender, birthday, phoneNumber,preferGenre
+      userid, password, username, email, gender, birthday, phoneNumber,preferGenre,
+      proxy: {
+        host: 'localhost',
+        port: 8080,
+        protocol: 'http'
+      }
     })
-    .then(resp => {})
-    .catch(err => {})
+    .then(resp => {
+      alert('회원가입 성공, 로그인 해 주세요')
+    })
+    .catch(err => {
+      alert('회원가입 실패')
+    })
   }
   return (
     <>
