@@ -21,10 +21,8 @@ import com.example.demo.cmm.controller.AbstractController;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
-@RequiredArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/halls") 
+@RestController @RequiredArgsConstructor @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/halls")
 public class HallController extends AbstractController<Hall>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final HallServiceImpl service;
@@ -56,5 +54,13 @@ public class HallController extends AbstractController<Hall>{
 	@GetMapping("/exists/{id}")
 	public ResponseEntity<Boolean> existsById(@PathVariable int id) {
 		return ResponseEntity.ok(service.existsById(id));
+	}
+	@GetMapping("find/{name}/{location}")
+	public ResponseEntity<List<Hall>> findByNameAndLocation(@PathVariable String name, String location) {
+		return ResponseEntity.ok(service.findByHallNameAndHallLocation(name, location));
+	}
+	@GetMapping("/find/{location}")
+	public ResponseEntity<List<Hall>> findByHallLocation(@PathVariable String location) {
+		return ResponseEntity.ok(service.findByHallLocation(location));
 	}
 }
