@@ -12,10 +12,10 @@ import org.springframework.data.repository.query.Param;
 interface IHallRepository{
 	public List<Hall> findByHallLocation(String location);
 }
-public interface HallRepository extends JpaRepository<Hall, Integer>, IHallRepository {
+public interface HallRepository extends JpaRepository<Hall, Long>, IHallRepository {
 	@Query(value="update hall h set h.hall_closed = :hallClosed "
 			+ " where h.hall_num = :hallNum", nativeQuery = true)
-	public int update(@Param("hallClosed") String hallClosed,
-						@Param("hallNum") int hallNum);
+	public long update(@Param("hallClosed") String hallClosed,
+						@Param("hallNum") long hallNum);
 	public List<Hall> findByHallNameAndHallLocation(String hallName, String hallLocation);
 }

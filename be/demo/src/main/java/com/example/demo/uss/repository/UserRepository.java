@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.uss.domain.User;
 
-interface IUserRepository{
+interface UserCustomRepository{
 	
 }
-public interface UserRepository extends JpaRepository<User, Integer>, IUserRepository {
+public interface UserRepository extends JpaRepository<User, Long>, UserCustomRepository {
 
 }

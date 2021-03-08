@@ -1,7 +1,7 @@
 package com.example.demo.sec.util;
 
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.security.core.Authentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,14 +15,13 @@ public class CustomAuthTokenProvider implements AuthTokenProvider{
 	private int jwtExpirationMs;
 	@Override
 	public String parseTokenString(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		String bearerToken = request.getHeader("Authorization");
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
 	}
-	@Override
-	public AuthToken issue(Long userNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	@Override
 	public Long getTokenOwnerNo(String token) {
 		// TODO Auto-generated method stub
@@ -32,6 +31,12 @@ public class CustomAuthTokenProvider implements AuthTokenProvider{
 	public boolean validateToken(String token) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String issue(Authentication auth) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

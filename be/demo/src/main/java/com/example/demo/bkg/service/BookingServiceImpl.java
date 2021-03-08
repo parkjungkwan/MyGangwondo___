@@ -14,14 +14,14 @@ import com.example.demo.cmm.service.AbstractService;
 public class BookingServiceImpl extends AbstractService<Booking> implements BookingService{
 	private final BookingRepository repo;
 	
-	@Override public int save(Booking b) { return (repo.save(b) != null) ?  1 : 0;}
-	@Override public int delete(Booking b) { repo.delete(b); return (getOne(b.getBookNum()) == null) ? 1 : 0;}
-	@Override public int count() { return (int)repo.count();}
+	@Override public long save(Booking b) { return (repo.save(b) != null) ?  1 : 0;}
+	@Override public long delete(Booking b) { repo.delete(b); return (getOne(b.getBookNum()) == null) ? 1 : 0;}
+	@Override public long count() { return repo.count();}
 	@Override public List<Booking> findAll() { return repo.findAll();}
-	@Override public Booking getOne(int id) { return repo.getOne(id);}
-	@Override public Optional<Booking> findById(int id){ return repo.findById(id);}
-	@Override public boolean existsById(int id) { return repo.existsById(id);}
-	@Override public int update(String bookName, String bookEmail, String bookPnumber, int bookNum) { 
+	@Override public Booking getOne(long id) { return repo.getOne(id);}
+	@Override public Optional<Booking> findById(long id){ return repo.findById(id);}
+	@Override public boolean existsById(long id) { return repo.existsById(id);}
+	@Override public long update(String bookName, String bookEmail, String bookPnumber, long bookNum) { 
 		return repo.update(bookName, bookEmail, bookPnumber, bookNum);}
-	@Override public List<Booking> findByBookNum(int bookNum) { return repo.findByBookNum(bookNum);}
+	@Override public List<Booking> findByBookNum(long bookNum) { return repo.findByBookNum(bookNum);}
 }

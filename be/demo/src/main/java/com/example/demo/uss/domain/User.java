@@ -21,7 +21,7 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "users")
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_num") private int userNum;
+	@Column(name = "user_num") private long userNum;
 	@Column private String userid;
 	@Column private String password;
 	@Column private String username;

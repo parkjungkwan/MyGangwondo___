@@ -14,11 +14,11 @@ import com.example.demo.cmm.service.AbstractService;
 public class UserServiceImpl extends AbstractService<User> implements UserService{
 	private final UserRepository repo;
 	
-	@Override public int save(User u) { return (repo.save(u) != null) ? 1 : 0;}
-	@Override public int delete(User u) { repo.delete(u); return (getOne(u.getUserNum()) == null) ? 1 : 0;}
-	@Override public int count() { return (int)repo.count();}
+	@Override public long save(User u) { return (repo.save(u) != null) ? 1 : 0;}
+	@Override public long delete(User u) { repo.delete(u); return (getOne(u.getUserNum()) == null) ? 1 : 0;}
+	@Override public long count() { return repo.count();}
 	@Override public List<User> findAll() { return repo.findAll();}
-	@Override public User getOne(int id) { return repo.getOne(id);}
-	@Override public Optional<User> findById(int id){ return repo.findById(id);}
-	@Override public boolean existsById(int id) { return repo.existsById(id);}
+	@Override public User getOne(long id) { return repo.getOne(id);}
+	@Override public Optional<User> findById(long id){ return repo.findById(id);}
+	@Override public boolean existsById(long id) { return repo.existsById(id);}
 }
