@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.example.demo.sec.util.CustomAuthEntryPoint;
+import com.example.demo.sec.util.AuthEntryPoint;
 
 public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 	private static final String[] PUBLIC_URI = {
@@ -25,6 +25,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 		.authenticated()
 		.and()
 		.exceptionHandling()
-		.authenticationEntryPoint(new CustomAuthEntryPoint());
+		.authenticationEntryPoint(new AuthEntryPoint());
 	}
 }

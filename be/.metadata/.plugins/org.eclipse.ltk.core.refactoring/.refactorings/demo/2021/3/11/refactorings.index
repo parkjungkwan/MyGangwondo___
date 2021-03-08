@@ -4,3 +4,7 @@
 1615171236860	Rename type 'CustomAuthenticationEntryPoint'
 1615172171696	Rename type 'AuthToken'
 1615173814452	Delete element
+1615183406535	Rename type 'CustomAuthEntryPoint'
+1615183415002	Rename type 'CustomAuthToken'
+1615183662065	Delete elements
+1615183669228	Rename type 'CustomAuthTokenProvider'

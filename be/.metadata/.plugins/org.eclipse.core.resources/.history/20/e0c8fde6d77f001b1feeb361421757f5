@@ -1,0 +1,9 @@
+package com.example.demo.uss.domain;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+@Component
+public class Role {
+	@Enumerated(EnumType.STRING)
+	private RoleName roleName;
+}

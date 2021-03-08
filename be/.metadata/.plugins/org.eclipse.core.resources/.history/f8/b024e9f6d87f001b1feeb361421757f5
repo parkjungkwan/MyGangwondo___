@@ -1,0 +1,11 @@
+package com.example.demo.uss.domain;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import org.springframework.stereotype.Component;
+@Entity
+public class Role {
+	@Enumerated(EnumType.STRING)
+	private RoleName roleName;
+}
