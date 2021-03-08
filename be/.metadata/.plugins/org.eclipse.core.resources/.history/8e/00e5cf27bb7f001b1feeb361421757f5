@@ -1,0 +1,22 @@
+package com.example.demo.sec.util;
+
+import org.slf4j.Logger;
+
+import com.sun.org.slf4j.internal.LoggerFactory;
+
+interface AuthToken {
+	String getToken();
+}
+public class CustomAuthToken implements AuthToken{
+	private static final Logger logger = LoggerFactory.getLogger(CustomAuthToken.class);
+	 
+    // 보통 설정파일에 관리하고 `@Value` 등으로 주입받아 사용하는 것을 추천
+    private static final String SECRET_KEY = "SOME_SECRET_KEY";
+    private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; 
+	@Override
+	public String getToken() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

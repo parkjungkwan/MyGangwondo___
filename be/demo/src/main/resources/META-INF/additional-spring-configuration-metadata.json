@@ -1,0 +1,42 @@
+{"properties": [
+  {
+    "name": "auth.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtSecret'"
+  },
+  {
+    "name": "auth.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtSecret'"
+  },
+  {
+    "name": "auth.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtSecret'"
+  },
+  {
+    "name": "aut",
+    "type": "java.lang.String",
+    "description": "A description for 'aut'"
+  },
+  {
+    "name": "auth.jwtExpirationMs",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtExpirationMs'"
+  },
+  {
+    "name": "auth.jwtExpirationMs",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtExpirationMs'"
+  },
+  {
+    "name": "auth.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtSecret'"
+  },
+  {
+    "name": "auth.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwtSecret'"
+  }
+]}

@@ -1,0 +1,8 @@
+package com.example.demo.sec.util;
+
+interface AuthToken {
+	String getToken();
+}
+public class CustomAuthToken implementsn AuthToken{
+	
+}

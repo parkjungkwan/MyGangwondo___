@@ -1,0 +1,14 @@
+package com.example.demo.sec.util;
+
+interface AuthToken {
+	String getToken();
+}
+public class CustomAuthToken implements AuthToken{
+
+	@Override
+	public String getToken() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
