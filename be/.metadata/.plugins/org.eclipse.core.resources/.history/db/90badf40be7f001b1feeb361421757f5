@@ -1,0 +1,15 @@
+package com.example.demo.sec.util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+
+public class CustomAuthTokenProvider implements AuthTokenProvider{
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	 
+	@Value("${auth.jwtSecret}")
+    private String jwtSecret;
+	@Value("${auth.jwtExpirationMs}")
+	private int jwtExpirationMs;
+	
+}
