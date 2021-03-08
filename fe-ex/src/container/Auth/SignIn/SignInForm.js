@@ -6,18 +6,50 @@ import {TextField} from '@material-ui/core'
 const SignInForm = () => {
   const [userid, setUserid] = useState('')
   const [password, setPassword] = useState('')
+  const API_URL = "http://localhost:8080/api/users/";
 
-  const login = e => {
-    e.preventDefault()
-    axios.post(`/users/login`,{
-      userid, password
-    })
-    .then(resp => {
 
-    })
-    .catch(err => {
-      
-    })
+  const authHeader = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.accessToken) {
+      return { Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
+      // return { 'x-access-token': user.accessToken };       // for Node.js Express back-end
+    } else {
+      return {};
+    }
+  }
+
+
+
+  const login = (username, password) => {
+    return axios
+      .post(API_URL + "signin", {
+        username,
+        password
+      })
+      .then(response => {
+        if (response.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+
+        return response.data;
+      });
+  }
+
+  const logout = () => {
+    localStorage.removeItem("user");
+  }
+
+  const register = (username, email, password) => {
+    return axios.post(API_URL + "signup", {
+      username,
+      email,
+      password
+    });
+  }
+
+  const getCurrentUser = () => {
+    return JSON.parse(localStorage.getItem('user'));;
   }
  
   return (
