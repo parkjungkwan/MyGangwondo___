@@ -38,6 +38,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	public UserDetails loadUserById(Long id) {
 		User user = repo.findById(id)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
-		return UserDTO.create(user);
+		return UserD썌.create(user);
 	}
 }

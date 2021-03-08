@@ -4,7 +4,6 @@ package com.example.demo.uss.domain;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.context.annotation.Lazy;
@@ -51,32 +50,26 @@ public class UserDTO implements UserDetails{
 				user.getEmail(), user.getPassword(), authorities);
 	}
 	
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		UserDTO that = (UserDTO) o;
-		return Objects.equals(userNum, that.userNum);
-	}
+	
 	@Override
-	public int hashCode() {
-		return Objects.hash(userNum);
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return null;
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		return true;
+		return false;
 	}
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		return false;
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return true;
+		return false;
 	}
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return false;
 	}
+	
 }

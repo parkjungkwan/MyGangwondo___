@@ -3,8 +3,6 @@ package com.example.demo.uss.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,15 +27,16 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	@Override public boolean existsById(long id) { return repo.existsById(id);}
 	@Override
 	public UserDetails loadUserByUsername(String useridOrEmail) {
-		return UserDTO.create(
-				repo.findByUseridOrEmail(useridOrEmail, useridOrEmail)
-				.orElseThrow(() -> new UsernameNotFoundException("아이디나 이메일을 찾을 수 없음.."))
-				);
-	}
-	@Transactional
-	public UserDetails loadUserById(Long id) {
-		User user = repo.findById(id)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
-		return UserDTO.create(user);
+		User user = null;
+		try {
+			user = UserDTO.create(
+					repo.findByUseridOrEmail(useridOrEmail, useridOrEmail)
+					.orElseThrow(() -> new Exception())
+					);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
 	}
 }

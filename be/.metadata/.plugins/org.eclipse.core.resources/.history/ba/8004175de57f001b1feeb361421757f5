@@ -3,8 +3,6 @@ package com.example.demo.uss.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,6 +36,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	public UserDetails loadUserById(Long id) {
 		User user = repo.findById(id)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
-		return UserDTO.create(user);
+		return UserDto.create(user);
 	}
 }
